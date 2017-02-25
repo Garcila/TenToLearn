@@ -1,0 +1,46 @@
+*, *:after, *:before {
+     -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+nav {
+  background-color: #000;
+}
+
+.ui.right.item {
+  transform: rotate(2deg);
+}
+
+.ui.menu {
+  transform: skewY(-2deg);
+  transform-origin: top right;
+  border-radius: 0%;
+  background-color: #ffe600;
+  border: none;
+  box-shadow: none;
+}
+
+.ui.menu:last-child {
+  margin-bottom: 4em;
+}
+
+.ui.right.item a {
+  transform: rotate(2deg);
+  color: #000;
+}
+
+.ui.header>.icon {
+  font-size: 3em;
+}
+
+.ui.header>.icon+.content {
+  vertical-align: bottom;
+}
+
+.ui.card, .ui.cards>.card {
+  border: none;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: none;
+  background-color: #fafafa;
+}

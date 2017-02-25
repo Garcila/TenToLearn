@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+
+<div class='ui main text container segment'>
+  <div class='ui huge header'>Add New Comment to <%= list.title %></div>
+</div>
+
+<div class='ui green inverted segment container'>
+  <form class="ui inverted form" action="/lists/<%= list._id %>/comments" method="POST">
+    <div class='field'>
+      <label >Text</label>
+      <input type="text" name="comment[text]" placeholder="text">
+    </div>
+    <button class='ui large button inverted olive'>Comment</button>
+  </form>
+</div>
+
+<% include ../partials/footer %>

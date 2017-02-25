@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<!-- <div class='ui main text container segment'>
+  <div class='ui huge header'>
+    All the Lists
+  </div>
+</div> -->
+<br>
+<br>
+<div class='ui grid container'>
+  <div class='centered twelve wide column'>
+    <div class='ui three stackable cards'>
+      <% lists.forEach((list) => { %>
+        <div class='ui card'>
+          <div class='ui image'>
+            <a href='/lists/<%= list._id %>'><img class='photo' src='<%= list.image %>'></a>
+          </div>
+          <div class='content'>
+            <a class='header' href='/lists/<%= list._id %>'><%= list.title %></a>
+            <div class='meta'>
+              <span class='date'><%= list.date.toDateString() %></span>
+              <span class='right floated'><%= list.category %></span>
+            </div>
+            <div class='description'>
+              <%= list.description.substr(0, 50) %>...
+              <a class='left' href='/lists/<%= list._id %>'><i class="ui large unhide green icon"></i></a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>

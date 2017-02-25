@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class='ui main text container segment'>
+  <div class='ui huge header'>New List</div>
+</div>
+
+<div class='ui green inverted segment container'>
+  <form class="ui inverted form" action="/lists" method="POST">
+    <div class='field'>
+      <label >Title</label>
+      <input type="text" name="list[title]" placeholder="title">
+    </div>
+    <div class='field'>
+      <label >Image</label>
+      <input type="text" name="list[image]" placeholder="image url">
+    </div>
+    <div class='field'>
+      <label >Category</label>
+      <input name='list[category]' placeholder="category"></textarea>
+    </div>
+    <div class='field'>
+      <label >Description</label>
+      <textarea name='list[description]' id='' cols='30' rows='6'></textarea>
+    </div>
+    <button class='ui large button inverted olive'>Create List</button>
+  </form>
+</div>
+
+<% include ../partials/footer %>

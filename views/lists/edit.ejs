@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+<div class='ui main text container segment'>
+  <div class='ui huge header'>
+    Edit <strong style='color: green; text-transform: uppercase container'><%= list.title %></strong>
+  </div>
+</div>
+
+<div class='ui olive inverted segment container'>
+  <form class='ui inverted form' action='/lists/<%= list._id %>?_method=PUT' method='POST'>
+    <div class='field'>
+      <label >Title</label>
+      <input type='text' name='list[title]' value='<%= list.title %>'>
+    </div>
+    <div class='field'>
+      <label >Image</label>
+      <input type='text' name='list[image]' value='<%= list.image %>'>
+    </div>
+    <div class='field'>
+      <label >Category</label>
+      <input name='list[category]' value='<%= list.category %>'></textarea>
+    </div>
+    <div class='field'>
+      <label>Description</label>
+      <textarea name='list[description]' cols='10' rows='4'><%= list.description %></textarea>
+    </div>
+    <button class='ui big button inverted'>Save</button>
+  </form>
+</div>
+
+<% include ../partials/footer %>
