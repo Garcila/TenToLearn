@@ -39,19 +39,20 @@
     <br>
     <% list.comments.forEach((comment) => { %>
       <p><strong><%= comment.author.username %></strong> - <%= comment.text %></p>
-      <div class="ui mini icon buttons">
-        <a href='/lists/<%= list._id %>/comments/<%= comment._id %>/edit'>
-          <button class='ui blue inverted button' >
-            <i class="ui blue outline comment icon"></i>
-          </button>
-        </a>
-
-        <form action='/lists/<%= list._id %>/comments/<%= comment._id %>?_method=DELETE' method='POST'>
-          <button class='ui red inverted button'>
-            <i class="ui red outline trash icon"></i>
-          </button>
-        </form>
-      </div>
+     <% if(currentUser && comment.author.id.equals(currentUser._id)) { %>
+        <div class="ui mini icon buttons">
+          <a href='/lists/<%= list._id %>/comments/<%= comment._id %>/edit'>
+            <button class='ui blue inverted button' >
+              <i class="ui blue outline edit icon"></i>
+            </button>
+          </a>
+          <form action='/lists/<%= list._id %>/comments/<%= comment._id %>?_method=DELETE' method='POST'>
+            <button class='ui red inverted button'>
+              <i class="ui red outline trash icon"></i>
+            </button>
+          </form>
+        </div>
+      <% } %>
     <% }); %>
   </div>
 </div>
