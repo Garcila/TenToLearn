@@ -23,7 +23,7 @@ router.get('/lists/:id/comments/new', middleware.isLoggedIn, (req, res) => {
 router.post('/lists/:id/comments', middleware.isLoggedIn, (req, res) => {
   List.findById(req.params.id, (err, list) => {
     if (err) {
-      console.log(err);
+      req.flash('error', 'Gremlins at work in the Database, please try again');
       res.redirect('/lists');
     } else {
       req.body.comment.text = req.sanitize(req.body.comment.text);
@@ -38,6 +38,7 @@ router.post('/lists/:id/comments', middleware.isLoggedIn, (req, res) => {
           comment.save();
           list.comments.push(comment);
           list.save();
+          req.flash('success', 'Comment successfully created');
           res.redirect(`/lists/${req.params.id}`);
         }
       });
@@ -74,6 +75,8 @@ router.delete('/lists/:id/comments/:comment_id', middleware.checkCommentOwnershi
     if (err) {
       res.redirect('back');
     } else {
+      req.flash('success', 'Comment deleted as requested');
+
       res.redirect(`/lists/${req.params.id}`);
     }
   });

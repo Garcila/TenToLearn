@@ -20,12 +20,15 @@ const expressSanitizer = require('express-sanitizer');
 //enable use of verbs PUT and DELETE
 const methodOverride = require('method-override');
 
+//connect-flash to present flash elements to the user
+const flash = require('connect-flash');
+
 //require created modules
-const List = require('./models/list');
-const Comment = require('./models/comment');
+// const List = require('./models/list');
+// const Comment = require('./models/comment');
 const User = require('./models/user');
 // const User = require('./models/user');
-const seedDB = require('./seeds');
+// const seedDB = require('./seeds');
 
 //require routes
 const commentRoutes = require('./routes/comments');
@@ -41,17 +44,20 @@ app.use(expressSanitizer());
 app.set('view engine', 'ejs');
 
 //enable serving static files from public folder
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(`${__dirname}/public`));
 
 app.use(methodOverride('_method'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(flash());
 
 //Passport configuration
 app.use(require('express-session')({
-  secret: 'secret',
+  secret: 'secret', //this is any secret string I want
   resave: false,
   saveUninitialized: false
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -62,6 +68,8 @@ passport.deserializeUser(User.deserializeUser());
 //in the navbar depending if the user is logged in or not
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
+  res.locals.error = req.flash('error');
+  res.locals.success = req.flash('success');
   next();
 });
 
@@ -76,4 +84,4 @@ app.use(commentRoutes);
 //setup db
 mongoose.connect('mongodb://localhost/ten');
 
-app.listen(port, () => console.log('Server staterted on port ' + port));
+app.listen(port, () => console.log(`Server staterted on port ${port}`));

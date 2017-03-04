@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 //list schema
-let listSchema = mongoose.Schema({
+const listSchema = mongoose.Schema({
   title: String,
   image: String,
   description: String,
   category: String,
-  date: {type: Date, default: Date.now},
+  date: { type: Date, default: Date.now },
   author: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
@@ -22,6 +22,6 @@ let listSchema = mongoose.Schema({
   ]
 });
 //model
-let List = mongoose.model('List', listSchema);
+const List = mongoose.model('List', listSchema);
 
 module.exports = List;

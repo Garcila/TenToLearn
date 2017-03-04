@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset='utf-8'>
+      <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
+      <title>Ten to Learn</title>
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css' />
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css' />
+      <link rel="stylesheet" href="/stylesheets/landing.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+
+    <% if (error && error.length > 0){ %>
+      <div class='ui container'>
+        <div class="ui red floating icon message">
+          <i class="small clockwise rotated asterisk icon"></i>
+          <div class="content">
+            <div class="ui inverted center aligned header">
+              <%= error %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (success && success.length > 0){ %>
+      <div class='ui container'>
+        <div class="ui yellow floating icon message">
+          <i class="small clockwise rotated asterisk icon"></i>
+          <div class="content">
+            <div class="ui inverted center aligned header ">
+              <%= success %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+
+    <div id="landing-header">
+        <h1 class=''><i class='clockwise rotated asterisk icon'></i>
+          Ten to Learn
+        </h1>
+        <div class='sub header'>
+          Knowledge 10 bites at a time
+        </div>
+        <br>
+        <div class='sub header'>
+          <a class='ui yellow button' href='/login'>Login</a>
+          <span>....</span>
+          <a class='ui yellow button' href='/register'>Sign Up</a>
+        </div>
+        <br>
+        <p class='sub header'>Or just browse all the Lists</p>
+        <a href="/lists" class="ui yellow button">All Lists</a>
+    </div>
+
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+<% include partials/footer %>

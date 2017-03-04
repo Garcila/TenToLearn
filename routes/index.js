@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 //root
 router.get('/', (req, res) => {
-  res.redirect('/lists');
+  res.render('landing');
 });
 
 //AUTH ROUTES_____________________________________________________________
@@ -17,13 +17,14 @@ router.get('/register', (req, res) => {
 
 //handle sign up logic
 router.post('/register', (req, res) => {
-  let newUser = new User({username: req.body.username});
+  const newUser = new User({ username: req.body.username });
   User.register(newUser, req.body.password, (err, user) => {
       if (err) {
-        console.log(err);
-        return res.render('register');
+        req.flash('error', err.message);
+        return res.redirect('/register');
       }
       passport.authenticate('local')(req, res, () => {
+        req.flash('success', `Successfully logged is as ${user.username}`);
         res.redirect('/lists');
       });
     });
@@ -45,6 +46,7 @@ router.post('/login', passport.authenticate('local',
 //logout
 router.get('/logout', (req, res) => {
   req.logout();
+  req.flash('success', 'You Logged Out');
   res.redirect('/lists');
 });
 

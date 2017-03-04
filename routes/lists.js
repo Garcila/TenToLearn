@@ -4,7 +4,7 @@ const router = express.Router();
 const List = require('../models/list');
 const middleware = require('../middleware/index'); /* because it is named index,
      we do not have to include the word index...
-     so('../middleware') by itself does the trick
+     so('../middleware') by itself does the job
      */
 
 //index

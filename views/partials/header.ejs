@@ -8,6 +8,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css' />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css' />
     <link rel='stylesheet' href='/stylesheets/app.css'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
   </head>
   <body>
     <nav>
@@ -36,3 +37,28 @@
         </div>
       </div>
     </nav>
+    <% if (error && error.length > 0){ %>
+      <div class='ui container'>
+        <div class="ui red floating icon message">
+          <i class="small clockwise rotated asterisk icon"></i>
+          <div class="content">
+            <div class="ui inverted center aligned header">
+              <%= error %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
+
+    <% if (success && success.length > 0){ %>
+      <div class='ui container'>
+        <div class="ui yellow floating icon message">
+          <i class="small clockwise rotated asterisk icon"></i>
+          <div class="content">
+            <div class="ui inverted center aligned header ">
+              <%= success %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } %>
