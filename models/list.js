@@ -19,7 +19,12 @@ const listSchema = mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Comment'
     }
-  ]
+  ],
+  item: {
+    part_a: String,
+    part_b: String,
+    image: String
+  }
 });
 //model
 const List = mongoose.model('List', listSchema);

@@ -5,23 +5,42 @@
 </div>
 
 <div class='ui green inverted segment container'>
-  <form class="ui inverted form" action="/lists" method="POST">
+  <form class='ui inverted form' action='/lists' method='POST'>
     <div class='field'>
       <label >Title</label>
-      <input type="text" name="list[title]" placeholder="title">
+      <input type='text' name='list[title]' placeholder='title'>
     </div>
     <div class='field'>
       <label >Image</label>
-      <input type="text" name="list[image]" placeholder="image url">
+      <input type='text' name='list[image]' placeholder='image url'>
     </div>
     <div class='field'>
       <label >Category</label>
-      <input name='list[category]' placeholder="category"></textarea>
+      <input name='list[category]' placeholder='category'></textarea>
     </div>
     <div class='field'>
       <label >Description</label>
       <textarea name='list[description]' id='' cols='30' rows='6'></textarea>
     </div>
+
+
+
+    <h2>List Items</h2>
+    <div class='field'>
+      <label>🌓</label>
+      <input name='list[item.part_a]' placeholder='part a'/>
+    </div>
+    <div class='field'>
+      <label>🌓</label>
+      <input name='list[item.part_b]' placeholder='part b'/>
+    </div>
+    <div class='field'>
+      <label>🌓</label>
+      <input name='list[item.image]' placeholder='image'/>
+    </div>
+
+
+
     <button class='ui large button inverted olive'>Create List</button>
   </form>
 </div>

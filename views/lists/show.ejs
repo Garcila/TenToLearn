@@ -16,6 +16,27 @@
     <div class="description">
       <%= list.description %>
     </div>
+
+    <div class='ui inverted segment'>
+      <div class='ui aligned list'>
+        <div class='item'>
+          <img class='ui left floated avatar image' src='<%= list.item.image %>'>
+          <div class='left floated content'><%= list.item.part_a %></div>
+          <div class='right floated content'><%= list.item.part_b %></div>
+        </div>
+      </div>
+    </div>
+
+    <div class='ui inverted segment'>
+      <div class='ui aligned list'>
+        <div class='item'>
+          <img class='ui left floated avatar image' src='<%= list.item.image %>'>
+          <div class='left floated content'><%= list.item.part_a %></div>
+          <div class='right floated content'><%= list.item.part_b %></div>
+        </div>
+      </div>
+    </div>
+
     <br>
     <div>
       <% if(currentUser && list.author.id.equals(currentUser._id)) { %>
